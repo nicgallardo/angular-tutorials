@@ -1,0 +1,27 @@
+<html ng-app="cameraScope">
+<head>
+  <title>Hello Angular</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.4/angular.min.js">
+  </script>
+  <script src="/people.js/">
+  </script>
+</head>
+<body>
+<div ng-app="myApp">
+<div ng-controller="PeopleCtrl">
+<table>
+    <tr>
+        <th>Id</th>
+        <th>First Name</th>
+        <th>Last Name</th>
+    </tr>
+    <tr ng-repeat="person in people">
+        <td>{{person.id}}</td>
+        <td>{{person.firstName}}</td>
+        <td>{{person.lastName}}</td>
+    </tr>
+</table>
+</div>
+</div>
+</body>
+</html>
