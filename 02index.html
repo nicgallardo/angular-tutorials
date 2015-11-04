@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html ng-app>
+<head>
+  <title>Hello Angular</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.4/angular.min.js">
+  </script>
+</head>
+<body>
+  <input type="text" ng-model="name" placeholder="what is your name?" value="BoJack">
+  <h1>My name is: {{name}}</h1>
+  <select ng-model="options">
+    <option selected='selected'> Dog </option>
+    <option> Cat </option>
+    <option> Dog & Cat </option>
+    <option> Neither </option>
+  </select>
+  <h1> You have Chosen: {{options}}</h1>
+</body>
+</html>

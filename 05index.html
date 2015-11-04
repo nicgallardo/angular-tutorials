@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html ng-app="masterScope">
+<head>
+  <title>Hello Angular</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.4/angular.min.js">
+  </script>
+  <script type="text/javascript">
+    angular.module('masterScope', [])
+      .controller('iterate', function($scope, $sce){
+        $scope.codes = ["&spades;", "&clubs;", "&hearts;", "&diams;"];
+        $scope.symbols = $scope.codes.map(function(code){
+          return $sce.trustAsHtml(code);
+        });
+        $scope.numbers = ["1", "2", "3", "4", "1"];
+        $scope.names = ["Harry", "Ron", "Hermione", "Sirius", "Hedwig", "Tonks"];
+      })
+  </script>
+  <link rel="stylesheet" type="text/css" href="main.css">
+</head>
+<body>
+  <div ng-controller="iterate">
+    <!-- <div ng-repeat="name in names"> -->
+    <ul>
+      <li ng-repeat="name in names">
+        {{name}}
+      </li>
+    </ul>
+    <h2> Alternative in ul </h2>
+    <ul ng-repeat="name in names">
+      <li>
+        {{name}}
+      </li>
+    </ul>
+    <h2> Symbols &spades; </h2>
+    <ul>
+      <li ng-repeat="symbol in symbols" ng-bind-html="symbol">
+        {{symbol}}
+      </li>
+    </ul>
+    <h2> Repeater? </h2>
+    <ul>
+      <li ng-repeat="number in numbers track by $index">
+        {{number}}
+    </ul>
+    <h2> Show and Hide</h2>
+      <div ng-show="3 + 4 == 5">
+        3 + 4 isn't 5, don't show
+      </div>
+
+      <div ng-show="3 + 4 == 7">
+        3 + 4 is 7, do show
+      </div>
+
+      <div ng-hide="3 + 4 == 5">
+        3 + 4 isn't 5, don't hide
+      </div>
+
+      <div ng-hide="3 + 4 == 7">
+        3 + 4 is 7, do hide
+      </div>
+    <h2> Simple Password Hide</h2>
+      <input type="text" ng-model="submithide">
+      <div ng-show="submithide.length >= 6 ">
+        <button type="submit"> Submit</button>
+      </div>
+    <h2> Highlight if right </h2>
+      <div ng-class="{highlight: 4+4 == 8}"> 4 + 4 = 8</div>
+      <div ng-class="{highlight: 1 + 1 == 3}"> 1 + 1 = 3</div>
+    <h2> Super Awesome Validator</h2>
+
+  </div>
+</body>
+</html>
