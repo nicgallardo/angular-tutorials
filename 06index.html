@@ -9,9 +9,14 @@
 
 </head>
 <body>
-  <div ng-controller="MyFirstController">
-  <h1>My name is: {{name}}</h1>
-  <input ng-model="name" type="text" placeholder="What is your name">
-</div>
+  <div ng-controller="ExercisesControler">
+    <h1>His name is: {{name}}</h1>
+    <input ng-model="name" type="text" placeholder="What is your name">
+    <small>His fav color is: {{favColor}}</small>
+    <h3>Seconds in a Century: {{secondsInACentury | number}}!<small> Don't waste them!</small></h3>
+    <h3>{{theDate |  date:"'Today is ' EEEE 'and the date is' dd MMMM  yyyy"}} the year of our Darth Lord!</h3>
+    <img src="http://img04.deviantart.net/73bc/i/2015/119/c/0/darth_vader_sith_lord_print_by_doomcmyk-d3h8xv5.jpg" width="300px">
+
+  </div>
 </body>
 </html>
