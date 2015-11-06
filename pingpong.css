@@ -1,0 +1,32 @@
+.red {
+  background-color: red
+}
+
+.blue {
+  background-color: blue
+}
+
+.box {
+  height: 230px;
+}
+
+.scoreboard {
+  font-size: 150px;
+  font-family: 'Orbitron', sans-serif;
+  color: white;
+  padding-bottom: 10px
+}
+.playerTitle {
+  font-size: 30px;
+  font-family: 'Orbitron', sans-serif;
+  color: white;
+  padding-top: 10px;
+}
+
+.aboveTen {
+  background-color: green
+}
+
+h1 {
+  font-family: 'Fugaz One', cursive;
+}

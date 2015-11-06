@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html ng-app="pingPongApp">
+<head>
+  <title>Ping Pong Scoreboard</title>
+  <link rel="stylesheet" href="pingpong.css">
+  <link href='https://fonts.googleapis.com/css?family=Orbitron|Fugaz+One' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css" integrity="sha384-aUGj/X2zp5rLCbBxumKTCw2Z50WgIr1vs/PFN4praOTvYXWlVyh2UtNUU0KAUhAX" crossorigin="anonymous">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.4/angular.min.js">
+  </script>
+  <script src="ping.js">
+  </script>
+<body ng-controller="parentCtrl">
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3 text-center">
+      <h1> Ping Pong Scoreboard </h1>
+      <div  ng-controller="pingPongCtrlOne" class="col-md-5 blue box" ng-click="count = count + 1" ng-class="{aboveTen: count >= 10}">
+        <div class="row">
+          <div class='col-md-12 text-center playerTitle'>
+            Player 1
+          </div>
+          <div class="row scoreboard">
+            {{count}}
+          </div>
+        </div>
+      </div>
+      <div  ng-controller="pingPongCtrlTwo" class="col-md-5 col-md-offset-1 blue box" ng-click="count = count + 1" ng-init="count=0" ng-class="{aboveTen: count >= 10}">
+        <div class="row">
+          <div class='col-md-12 text-center playerTitle'>
+            Player 2
+          </div>
+          <div class="row scoreboard">
+            {{count}}
+          </div>
+        </div>
+      </div>
+      <button type="submit" ng-click="reset()"> Reset </button>
+    </div>
+  </div>
+</body>
+</html>

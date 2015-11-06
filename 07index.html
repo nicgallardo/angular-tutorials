@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html ng-app="numbersApp">
+<head>
+  <title>Unit 7</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css" integrity="sha384-aUGj/X2zp5rLCbBxumKTCw2Z50WgIr1vs/PFN4praOTvYXWlVyh2UtNUU0KAUhAX" crossorigin="anonymous">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.4/angular.min.js">
+  </script>
+  <script src="07scripts.js">
+  </script>
+<body ng-controller="numbersCtrl">
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3 text-center">
+      <h3>The Random Number Bot: {{number}}!</h3>
+      <button ng-click="pickRandomNumber()"> Pick Random Number</button>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3 text-center">
+      <h3>The Word Reverse Machine:
+        <input type="text" ng-model="word">
+        <button ng-click='revWord()'> Reverse the Word </button>
+      </h3>
+      <h3>
+        {{word}}
+      </h3>
+    </div>
+  </div>
+</body>
+</html>
