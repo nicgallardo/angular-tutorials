@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html ng-app="contactsApp">
+<head>
+  <title>Contact Keeper</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css" integrity="sha384-aUGj/X2zp5rLCbBxumKTCw2Z50WgIr1vs/PFN4praOTvYXWlVyh2UtNUU0KAUhAX" crossorigin="anonymous">
+  <link rel="stylesheet" href="contacts.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.4/angular.min.js">
+  </script>
+  <script src="contacts.js">
+  </script>
+<body ng-controller="contactsCtrl">
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3 text-center">
+      <h2>Contact Keeper</h2>
+  </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3 jumbotron text-center">
+      <form ng-submit="submit()">
+      <p>First Name: <input type='text' ng-model='contact.firstName'></p>
+      <p>Last Name: <input type='text' ng-model='contact.lastName'></p>
+      <p>Email: <input type='text' ng-model='contact.email'></p>
+      <p>Phone: <input type='text' ng-model='contact.phone'></p>
+      <input type="submit" id="submit" value="submit">
+      </form>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3 text-center">
+      Search Directory: <input ng-model="search.$">
+    </div>
+  </div>
+  <div class="row bg-red">
+    <div class="col-md-6 col-md-offset-3 margin-top-20">
+      <div class="col-md-3">
+        First Name
+      </div>
+      <div class="col-md-3">
+        Last Name
+      </div>
+      <div class="col-md-3">
+        Email
+      </div>
+      <div class="col-md-3">
+        Phone
+      </div>
+    </div>
+    <div class="col-md-6 col-md-offset-3 ">
+      <div ng-repeat="people in directory | filter:search:strict">
+        <div class="col-md-3">
+          {{people.firstName}}
+        </div>
+        <div class="col-md-3">
+          {{people.lastName}}
+        </div>
+        <div class="col-md-3">
+          {{people.email}}
+        </div>
+        <div class="col-md-3">
+          {{people.phone}}
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,13 +1,10 @@
 var app = angular.module("pingPongApp", []);
 
-app.controller("parentCtrl", function($scope){
+app.controller("pingPongCtrl", function($scope){
+  $scope.countTwo = 0;
+  $scope.countOne = 0;
   $scope.reset = function(){
-    
+    $scope.countOne = 0;
+    $scope.countTwo = 0;
   }
-})
-app.controller("pingPongCtrlOne", function($scope){
-  $scope.count = 0;
-})
-app.controller("pingPongCtrlTwo", function($scope){
-  $scope.count = 0;
 })

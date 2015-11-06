@@ -16,49 +16,6 @@
   </div>
   <div class="row">
     <div class="col-md-6 col-md-offset-3 text-center">
-      <form ng-submit="postWords()">
-        <h3>enter a boys name
-          <span>
-            <input type="text" ng-model="words.boyName">
-          </span>
-        </h3>
-        <h3>enter an adjetive
-          <span>
-            <input type="text" ng-model="words.adjetive">
-          </span>
-        </h3>
-        <h3>enter a plural noun
-          <span>
-            <input type="text" ng-model="words.pluralNoun1">
-          </span>
-        </h3>
-        <h3>enter an insect
-          <span>
-            <input type="text" ng-model="words.insect">
-          </span>
-        </h3>
-        <h3>enter a plural noun
-          <span>
-            <input type="text" ng-model="words.pluralNoun2">
-          </span>
-        </h3>
-        <h3>enter a verb ending in "s"
-          <span>
-            <input type="text" ng-model="words.verbInS">
-          </span>
-        </h3>
-        <input type="submit" ng-click="update()" value="Submit">
-      </form>
-      <div class="jumbotron">
-        <h4> View as JSON </h4>
-        <pre>master = {{master | json}}</pre>
-        <h4> View as Key Value Pair</h4>
-        <pre>master.boyname = {{master.boyName}}</pre>
-      </div>
-      <div class="jumbotron">
-        <h3>I'm in love with <span>{{master.boyName}}</span>. He's so <span>{{master.adjetive}}</span>! He has big flat <span>{{master.pluralNoun1}}</span>,
-        and when our <span>{{master.pluralNoun2}}</span> meet, I get <span>{{master.insect}}</span> in my stomach. I've fallen for him like a ton of <span>{{master.verbInS}}</span>, and he shuffles for me, too. But I think he's got another girlfriend. What should I do?</h3>
-      </div>
     </div>
   </div>
 </body>
