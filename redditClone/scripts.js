@@ -2,12 +2,11 @@ var app = angular.module("redditApp", [])
 app.controller("redditCtrl", function($scope){
   $scope.form = false;
   $scope.commentForm = false;
-  $scope.commentsShow = false;
   $scope.posts = [];
   $scope.comments = [];
   $scope.votes = 0;
-  //date 
-  $scope.date = Date.now();
+  $scope.post = {};
+  $scope.createComment = {};
 
   $scope.sorting = '-version';
 
@@ -15,12 +14,22 @@ app.controller("redditCtrl", function($scope){
     $scope.form = true;
   }
 
-  $scope.submit = function(){
+  $scope.submit = function(comments){
     $scope.form = false;
+    $scope.post = {
+      commentsShow: false,
+      commentForm: false,
+      postDate: Date.now(),
+      title: $scope.post.title,
+      author: $scope.post.author,
+      imageURL: $scope.post.imageURL,
+      description: $scope.post.description,
+      comments: []
+    }
     $scope.posts.push($scope.post);
+    console.log($scope.posts);
     $scope.post = {};
   }
-
   $scope.countUp = function(){
     $scope.votes + 1
   }
@@ -29,20 +38,20 @@ app.controller("redditCtrl", function($scope){
     $scope.votes - 1
   }
   $scope.commentFormShow = function(){
-    $scope.commentForm = true;
+    this.post.commentForm = true;
   }
 
   $scope.submitComment = function(){
-    $scope.commentForm = false;
-    $scope.comments.push($scope.createComment);
+    this.post.commentForm = false;
+    console.log("createComment", $scope.createComment);
+    this.post.comments.push($scope.createComment);
     $scope.createComment = {};
   }
 
   $scope.commentsShow = function(){
-    $scope.commentsShow = true;
+    this.post.commentsShow = true;
   }
   $scope.commentsClose = function(){
-    $scope.commentsShow = false;
+    this.post.commentsShow = false;
   }
-
 })

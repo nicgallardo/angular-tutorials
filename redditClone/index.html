@@ -81,7 +81,7 @@
           <div class="row">
             <div class="col-md-12">
               <h4>
-                {{post.title}} | <span class="glyphicon glyphicon-arrow-up" aria-hidden="true" ng-click="count = count + 1" ng-init="count=0"></span> <span class="glyphicon glyphicon-arrow-down" aria-hidden="true" ng-click="count = count - 1"></span><span ng-class="{belowZero: count < 0, aboveZero: count > 0}">{{count}}</span>
+                {{post.title}} | <span class="glyphicon glyphicon-thumbs-up" aria-hidden="true" ng-click="count = count + 1" ng-init="count=0"></span>  <span ng-class="{belowZero: count < 0, aboveZero: count > 0}">{{count}}</span>  <span class="glyphicon glyphicon-thumbs-down" aria-hidden="true" ng-click="count = count - 1"></span>
               </h4>
             </div>
           </div>
@@ -99,12 +99,12 @@
           </div>
           <div class="row">
             <div class="col-md-4">
-              <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>{{date | date:'medium'}}
+              <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>{{post.postDate | date:'medium'}}
             </div>
             <div class="col-md-4">
               <a ng-click="commentsShow()">
                 <span class="glyphicon glyphicon-comment" aria-hidden="true"></span>
-                  <ng-pluralize count="comments.length"
+                  <ng-pluralize count="post.comments.length"
                     when="{'0': 'be the first to comment',
                     '1': 'view the comment',
                     'other': 'view all comments'}">
@@ -118,13 +118,13 @@
             </div>
           </div>
         </div>
-        <div class="row" ng-show="commentForm == true">
+        <div class="row" ng-show="post.commentForm == true">
           <div class="col-md-6 col-md-offset-3 text-center">
             <h3>Create Comment</h3>
             <div class="jumbotron">
               <form ng-submit="submitComment()">
                 <h4>Comment</h4>
-                <input type="text" ng-model="createComment.comment" placeholder="Title">
+                <input type="text" ng-model="createComment.comment" placeholder="comment">
                 <h4>Author</h4>
                 <input type="text" ng-model="createComment.author" placeholder="author">
                 <input type="submit" value="Submit Comment">
@@ -132,8 +132,8 @@
             </div>
           </div>
         </div>
-        <div class="row" ng-show="commentsShow == true">
-          <div class="col-md-11 text-left" ng-repeat="comment in comments">
+        <div class="row" ng-show="post.commentsShow == true">
+          <div class="col-md-11 text-left" ng-repeat="comment in post.comments">
                 <h5>Comment:</h5>
                   <span>
                     {{comment.comment}}
