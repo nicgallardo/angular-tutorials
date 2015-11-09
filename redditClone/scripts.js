@@ -1,5 +1,8 @@
-var app = angular.module("redditApp", [])
+var app = angular.module("redditApp", ['angularMoment'])
 app.controller("redditCtrl", function($scope){
+
+  $scope.time = new Date();
+
   $scope.form = false;
   $scope.commentForm = false;
   $scope.posts = [];
@@ -19,7 +22,7 @@ app.controller("redditCtrl", function($scope){
     $scope.post = {
       commentsShow: false,
       commentForm: false,
-      postDate: Date.now(),
+      postDate: Date(),
       title: $scope.post.title,
       author: $scope.post.author,
       imageURL: $scope.post.imageURL,
